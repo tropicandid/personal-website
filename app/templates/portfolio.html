@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Portfolio{% endblock %}
+
+{% block hero %}
+<section class="hero hero-basic">
+        <div class="hero-basic__text">
+            <h1>Portfolio</h1>
+        </div>
+        <img class="hero-basic__image" src="{{ url_for('static', filename='images/portfolio-3.jpg') }}" />
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h2>Featured Project</h2>
+    <div class="media-text">
+        <img src="{{ url_for('static', filename='images/pantry-seedlings.jpg') }}" />
+        <div class="media-text__text">
+            <span class="eyebrow">In Progress</span>
+            <h2>The Pantry Project</h2>
+            <p>In our ever-distributing global society, we find ourselves provided with
+                increased availability of goods and ease of access to daily necessities.
+                However, these benefits come with trade-offs as well. The Pantry Project
+                is an effort to shed light on these trade-offs as well as provide resources
+                for those who want to bridge the gap.</p>
+            <p>More details coming soon!</p>
+        </div>
+    </div>
+</section>
+
+{% set text="Download a PDF of my current resume here." %}
+{% set link=url_for('static', filename='docs/DeannaSteers_CV.pdf') %}
+{% set button_text="Download PDF" %}
+
+{% include 'components/cta.html' %}
+
+{% if entries %}
+<section class="work-samples">
+    <div class="container">
+        <h2>More Past Work</h2>
+        <div class="grid grid-col-3">
+
+            <div id="work-samples__overlay" class="overlay">
+                <span id="blog-overlay-close" class="close"></span>
+                <div class="overlay-heading">
+                    <h2 id="overlay-name"></h2>
+                    <a id="overlay-url" class="button button-beige" href="#!">View Work</a>
+                </div>
+                <div class="overlay-table">
+                    <div class="col col-1">
+                        <h3>Summary</h3>
+                        <div id="overlay-description"></div>
+                        </div>
+                    <div class="col col-2">
+                        <h3>Tooling</h3>
+                        <div id="overlay-tooling"></div>
+                    </div>
+                    <div class="col col-3">
+                        <h3>My Role</h3>
+                        <div id="overlay-responsibilities"></div>
+                    </div>
+                </div>
+            </div>
+
+            {% for entry in entries %}
+                <div data-id="{{ entry.id }}" class="work-samples__item">
+                    {% set logo_url = 'images/logos/' + entry.image %}
+                    <div id="bg-image" class="bg-image" style="background-image: url({{ url_for('static', filename=logo_url) }})"></div>
+                    <h2 data-id="{{ entry.id }}">{{ entry.name }}</h2>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}

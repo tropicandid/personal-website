@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block hero %}
+<section class="hero hero-basic">
+        <div class="hero-basic__text">
+            <h1>Design Components</h1>
+             <p>Empasized paragraph text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <img class="hero-basic__image" src="https://fastly.picsum.photos/id/425/900/900.jpg?hmac=DbUpCSBk9-vWuFEfOaB5t1VKksHsV7sJvehEbZFrDfI" />
+</section>
+{% endblock %}
+
+
+{% block content %}
+    <section class="container typography">
+        <h2 class="heading">Typography</h2>
+        <h1>Heading H1</h1>
+        <h2>Heading H2</h2>
+        <h3>Heading H3</h3>
+        <h4>Heading H4</h4>
+        <h5>Heading H5</h5>
+        <h6>Heading H6</h6>
+        <p>Basic paragraph text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et <a href="#!">dolore</a> magna aliqua. Ut
+            enim ad minim <i>veniam, quis nostrud exercitation</i> ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in <strong>voluptate velit esse</strong> cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+            sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p class="emphasized">Empasized paragraph text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.</p>
+    </section>
+    <section class="container form">
+        <h2 class="">Form Elements</h2>
+        <label>Text Input</label>
+        <input type="text" placeholder="Enter Email"/>
+        <textarea > </textarea>
+        <a href="#!" class="button">Button</a>
+        <a href="#!" class="button alt">Alternative Button</a>
+    </section>
+    <section class="container color-palette">
+        <h2 class="heading">Primary Colors</h2>
+        <div class="grid grid-col-4">
+            <div class="card bg-light-green">
+                <span>Light Green</span>
+                <span>#abb28a</span>
+            </div>
+
+            <div class="card bg-green">
+                <span>Green</span>
+                <span>#526645</span>
+            </div>
+
+            <div class="card bg-dark-green">
+                <span>Dark Green</span>
+                <span>#234239</span>
+            </div>
+        </div>
+
+        <h2 class="heading">Secondary Colors</h2>
+        <div class="grid grid-col-4">
+            <div class="card bg-light-terracotta">
+                <span>Light Terracotta</span>
+                <span>#edb078</span>
+            </div>
+
+            <div class="card bg-terracotta">
+                <span>Terracotta</span>
+                <span>#df924c</span>
+            </div>
+
+            <div class="card bg-dark-terracotta">
+                <span>Dark Terracotta</span>
+                <span>#8e3f1b</span>
+            </div>
+        </div>
+
+        <h2 class="heading">Base & Accent Colors</h2>
+        <div class="grid grid-col-4">
+            <div class="card bg-beige-1">
+                <span>Beige 1</span>
+                <span>#faf6f2</span>
+            </div>
+
+            <div class="card bg-beige-2">
+                <span>Beige 2</span>
+                <span>#f9eee0</span>
+            </div>
+
+            <div class="card bg-beige-3">
+                <span>Beige 3</span>
+                <span>#e7cdac</span>
+            </div>
+
+            <div class="card bg-beige-4">
+                <span>Beige 4</span>
+                <span>#c1a27a</span>
+            </div>
+        </div>
+
+    </section>
+    <section class="container components">
+        <h2 class="heading">Components</h2>
+
+        <h3>Media & Text</h3>
+        <div class="media-text card grid grid-col-2">
+            <img class="card-img" src="{{ url_for('static', filename='images/pic01.jpg') }}" />
+            <div>
+                <h2>Lorem ipsum dolor sit amet en glorium</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <a href="#!" class="button">Learn More</a>
+            </div>
+        </div>
+
+        <h3>Cards with images</h3>
+        <div class="grid grid-col-3">
+            <div class="card">
+                <img class="card-img" src="{{ url_for('static', filename='images/pic01.jpg') }}" />
+                <h2>Lorem ipsum dolor sit amet en glorium</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            </div>
+
+            <div class="card">
+                <img class="card-img" src="{{ url_for('static', filename='images/pic01.jpg') }}" />
+                <h2>Lorem ipsum dolor sit amet en glorium</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            </div>
+
+            <div class="card">
+                <img class="card-img" src="{{ url_for('static', filename='images/pic01.jpg') }}" />
+                <h2>Lorem ipsum dolor sit amet en glorium</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            </div>
+
+            <div class="card">
+                <h2>Lorem ipsum dolor sit amet en glorium</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            </div>
+            <div class="card">
+                <h2>Lorem ipsum dolor sit amet en glorium</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            </div>
+            <div class="card">
+                <h2>Lorem ipsum dolor sit amet en glorium</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            </div>
+        </div>
+
+        <h3>Call to Action</h3>
+        <section class="call-to-action">
+            <div class="container">
+                <h2>Lorem ipsum dolor sit amet en glorium</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <a href="#!" class="button">Learn More</a>
+            </div>
+        </section>
+
+        <h3>Banner</h3>
+
+    </section>
+
+    <section class="banner" style="background-image:url('https://fastly.picsum.photos/id/425/900/900.jpg?hmac=DbUpCSBk9-vWuFEfOaB5t1VKksHsV7sJvehEbZFrDfI')">
+        <div class="container container-sm">
+            <p class="emphasized">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua"</p>
+        </div>
+    </section>
+
+    <section class="container components">
+        <h3>Content Slider</h3>
+        <div class="content-slider">
+            <slide>
+                <h2>Lorem ipsum dolor sit amet en glorium</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <a href="#!" class="button">Learn More</a>
+            </slide>
+        </div>
+
+        <h3>Accordions</h3>
+        <div class="accordion">
+            <div>
+                <div class="accordion-tab">
+                    <h2>Accordion Tab</h2>
+                </div>
+                <div class="accordion-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

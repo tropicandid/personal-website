@@ -1,0 +1,33 @@
+@use '00-config' as *;
+
+.cta {
+    background-color: $green;
+    color: $white;
+
+    .container {
+        @media screen and (min-width: $break-tablet) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    p {
+        font-family: $font-secondary;
+        font-size: 44px;
+        margin: 0 0 1.5rem;
+
+        @media screen and (min-width: $break-tablet) {
+            font-size: 60px;
+            margin: 3rem 0;
+            max-width: 70%;
+        }
+
+        @media screen and (min-width: $break-desktop) {
+            font-size: 70px;
+        }
+    }
+
+    &__button-container {
+        align-content: center;
+    }
+}

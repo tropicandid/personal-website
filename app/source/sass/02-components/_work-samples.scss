@@ -1,0 +1,174 @@
+@use '00-config' as *;
+
+.work-samples {
+    .grid {
+        border: 1px solid $terracotta-dark;
+        gap: 0rem 0rem;
+        position: relative;
+    }
+
+    &__item {
+        align-content: center;
+        border: 1px solid $terracotta-dark;
+        cursor: pointer;
+        padding: 2rem;
+        position: relative;
+
+        h2 {
+            font-size: 30px;
+            text-align: center;
+            transition: color .25s ease-in-out;
+            @media screen and (min-width: $break-tablet) {
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        .bg-image {
+            background-color: $terracotta-dark;
+            background-blend-mode: multiply;
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+            left: 0;
+            opacity: .0;
+            position: absolute;
+            top: 0;
+            transition: opacity .3s ease-in-out;
+            width: 100%;
+            z-index: -1;
+        }
+
+        &:hover {
+            h2 {
+                color: $beige-1;
+            }
+
+            .bg-image {
+                opacity: .75;
+            }
+        }
+    }
+
+    .overlay {
+        background-color: $terracotta-dark;
+        color: $beige-1;
+        display: none;
+        height: calc(100% - 4rem);
+        overflow: scroll;
+        padding: 2rem 1rem;
+        position: absolute;
+        width: calc(100% - 2rem);
+
+        @media screen and (min-width: $break-tablet) {
+            width: calc(100% - 4rem);
+            height: calc(100% - 4rem);
+            padding: 2rem;
+        }
+
+        .button {
+            min-width: 80px;
+        }
+
+        .col {
+            border-bottom: 2px solid $beige-1;
+
+            @media screen and (min-width: $break-tablet) {
+                border-bottom: none;
+                border-right: 2px solid $beige-1;
+                flex-basis: 25%;
+            }
+
+            &.col-3 {
+                border-bottom: none;
+
+                @media screen and (min-width: $break-tablet) {
+                    border-right: none;
+                }
+            }
+        }
+
+        .col-1 {
+            @media screen and (min-width: $break-tablet) {
+                flex-basis: 50%;
+            }
+        }
+
+        &.open {
+            display: block;
+            z-index: 1;
+        }
+
+        .close {
+            cursor: pointer;
+            float: right;
+            height: 30px;
+            margin-top: -1rem;
+            width: 30px;
+            transform: translate(15px, 5px);
+
+            &:after,
+            &:before {
+                background-color: $beige-1;
+                content: '';
+                display: block;
+                height: 30px;
+                transform: rotate(45deg);
+                width: 2px;
+            }
+
+            &:after {
+                transform: rotate(-45deg) translate(21px, -21px);
+            }
+        }
+
+        &-heading {
+            margin: 2rem auto 1rem;
+            width: 100%;
+
+            @media screen and (min-width: $break-tablet) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0 auto 1rem;
+            }
+        }
+
+        &-table {
+            display: block;
+            border: 2px solid #f5f5dc;
+            border-radius: 3px;
+
+            @media screen and (min-width: $break-tablet) {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            h3 {
+                border-bottom: 2px solid $beige-1;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-bottom: .5rem;
+
+                @media screen and (min-width: $break-tablet) {
+                    border-top: 2px solid none;
+                }
+            }
+
+            p {
+                padding-bottom: 1.5rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+
+                @media screen and (min-width: $break-desktop) {
+                    padding-bottom: 0.5rem;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                }
+            }
+
+            ul {
+                padding: 0 1rem 2rem 2rem;
+            }
+        }
+    }
+}

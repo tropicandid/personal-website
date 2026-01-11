@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% set body_classes='homepage' %}
+{% block title %}Homepage{% endblock %}
+
+{% block hero %}
+<section class="hero hero-home">
+    <div class="hero__text">
+        <div class="hero-home__profile">
+            <img src="{{ url_for('static', filename='images/IMG_6940.jpg') }}" />
+            <h1>Hi! I'm Deanna, and I'm a software engineer</h1>
+        </div>
+        <p>Making the world a better place by using technology to support slow living</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+
+    <section>
+        <div class="container">
+            <header class="header__section">
+                <h2>Recent Blog Posts</h2>
+                <div class="header__cta">
+                    <p>My blog articles will normally pertain to gardening, fabric arts, or cooking and the way's
+                        I've used technology to elevate these crafts. If you'd like to take a look at more of my passion
+                        projects, you can find a full list of my work on my blog page.</p>
+                    <div>
+                        <a href="{{ url_for('get_blogs') }}" class="button">All blogs</a>
+                    </div>
+                </div>
+            </header>
+            <div class="grid  grid-col-3">
+                {% if featured_posts %}
+                    {% for featured_post in featured_posts %}
+                        {% set data=featured_post %}
+                        {% include 'components/card.html' %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    {% set text="Have something you'd like to chat about?" %}
+    {% set link=url_for('get_contact') %}
+    {% set button_text="Get in touch" %}
+
+    {% include 'components/cta.html' %}
+
+    <section>
+        <div class="container media-text grid grid-col-2">
+             <img src="{{ url_for('static', filename='images/portfolio-3.jpg') }}" />
+            <div class="media-text__text">
+                <h2>Portfolio Work</h2>
+                <p>If you're more interesting in taking a look at some of my professional work, you can find a sample and my full CV on my portfolio page.</p>
+                <a href="{{ url_for('get_portfolio') }}" class="button">View portfolio</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

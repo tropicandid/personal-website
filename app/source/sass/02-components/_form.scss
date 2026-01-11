@@ -1,0 +1,33 @@
+@use '00-config' as *;
+
+input,
+textarea {
+    border-radius: 2px;
+    border: 1px solid grey;
+    margin: 1rem 0;
+    padding: 1rem;
+    width: calc(100% - 2rem);
+}
+
+label {
+    display: block;
+}
+
+input[type=text] {
+    width: 94.5%;
+}
+
+button.submit {
+    &.search {
+        background: transparent;
+        border: none;
+        height: 40px;
+        margin-left: -3.25rem;
+        width: 50px;
+    }
+}
+
+.search-form__content {
+    align-items: center;
+    display: flex;
+}

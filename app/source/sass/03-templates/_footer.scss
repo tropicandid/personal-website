@@ -1,0 +1,22 @@
+@use '00-config' as *;
+
+.footer {
+    @media screen and (min-width: $break-tablet) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo {
+        align-content: center;
+        color: $white;
+        font-family: $font-secondary;
+        font-size: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .copyright {
+        font-size: 18px;
+        font-weight: 300;
+    }
+}

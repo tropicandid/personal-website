@@ -1,0 +1,174 @@
+@use '00-config' as *;
+
+.header {
+    border-top: 1px solid $dark-brown;
+    border-bottom: 1px solid $dark-brown;
+    overflow-x: hidden;
+
+    &__container {
+        display: flex;
+        justify-content: space-between
+    }
+
+    &__nav {
+        height: 100vh;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        padding-top: 2.5rem;
+        position: fixed;
+        transition: opacity .3s ease-in-out .70s;
+        width: 100%;
+        z-index: 100;
+
+        &.hidden {
+            z-index: -1;
+
+            @media screen and (min-width: $break-tablet) {
+                z-index: 100;
+            }
+        }
+
+        @media screen and (min-width: $break-tablet) {
+            align-items: center;
+            display: flex;
+            flex-wrap: no-wrap;
+            justify-content: space-between;
+            height: auto;
+            opacity: 1;
+            padding-top: 0;
+            position: relative;
+            width: auto;
+        }
+
+        &.open {
+            opacity: 1;
+            transition: opacity .3s ease-in-out 0s;
+
+            li {
+                 transform: translateX(0vw);
+
+                 &:first-of-type {
+                    transition: transform .75s ease-in-out 0s;
+                 }
+
+                 &:nth-of-type(2) {
+                    transition: transform .75s ease-in-out .10s;
+                 }
+
+                 &:nth-of-type(3) {
+                    transition: transform .75s ease-in-out .20s;
+                 }
+
+                 &:last-of-type {
+                    transition: transform .75s ease-in-out .30s;
+                 }
+            }
+        }
+
+        li {
+            transition: transform .5s ease-in-out 1s;
+            transform: translateX(-100vw);
+
+            @media screen and (min-width: $break-tablet) {
+                transform: none;
+            }
+
+            &:first-of-type {
+                transition: transform .75s ease-in-out .40s;
+            }
+
+            &:nth-of-type(2) {
+                transition: transform .75s ease-in-out .30s;
+            }
+
+            &:nth-of-type(3) {
+                transition: transform .75s ease-in-out .20s;
+            }
+
+            &:last-of-type {
+                transition: transform .75s ease-in-out .10s;
+
+                .nav-link {
+                    border-right: none;
+                }
+            }
+        }
+    }
+
+    .hamburger {
+        cursor: pointer;
+        display: inline-block;
+        z-index: 1000;
+
+        @media screen and (min-width: $break-tablet) {
+            opacity: 0;
+            z-index: -1
+        }
+    }
+
+    .logo {
+        color: $dark-brown;
+        font-family: $font-secondary;
+        font-size: 20px;
+        margin: 0;
+        padding: 0.85rem 5%;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .nav-link {
+        color: $dark-brown;
+        display: inline-block;
+        font-size: 24px;
+        font-family: $font-secondary;
+        font-weight: 600;
+        padding: .75rem 1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+
+        &:after {
+            background-color: $terracotta-dark;
+            content: '';
+            display: block;
+            height: 2px;
+            margin-left: -5%;
+            transition: width .4s ease-in-out 0s;
+            width: 0%;
+
+            @media screen and (min-width: $break-tablet) {
+                bottom: -1px;
+                height: 4px;
+                left: auto;
+                margin-left: 0;
+                position: absolute;
+                right: -1px;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            outline: none;
+
+            &:after {
+                width: 80%;
+            }
+        }
+
+        @media screen and (min-width: $break-tablet) {
+            font-size: 16px;
+            border-right: 1px solid $dark-brown;
+            margin: 0 1.5rem;
+            min-width: 10vw;
+            padding: 1rem 0rem;
+            position: relative;
+            text-align: center;
+        }
+
+        @media screen and (min-width: $break-desktop) {
+            font-size: 20px;
+        }
+    }
+}

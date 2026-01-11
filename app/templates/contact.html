@@ -1,0 +1,50 @@
+{% from "bootstrap/wtf.html" import quick_form %}
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+
+{% block hero %}
+<section class="hero hero-basic">
+        <div class="hero-basic__text">
+            <h1>Get in Touch</h1>
+             <p></p>
+        </div>
+</section>
+{% endblock %}
+
+<section id="main">
+    {% block content %}
+    <section class="container">
+        <header>
+                <h2>Questions or comments?</h2>
+            </header>
+        <div class="grid grid-col-2 grid__wide-gap">
+            <div>
+                {% if form %}
+                    {{ quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+                {% else %}
+                    <p>Thank you for reaching out! I will get back to you as soon as possible.</p>
+                {% endif %}
+            </div>
+            <div class="contact__details">
+                <p> If you have ideas or requests for other videos or content you might like to see,
+                    I'd love to hear about it! Send over a quick summary and if I can fit it into my
+                    schedule I will email you back with some updates or follow-up questions.</p>
+                <p>Interested in discussing potential work? Feel free to take a look as some of my other
+                    professional resources below.</p>
+                <div class="row">
+                    <div class="col-6 col-12-small">
+                        <ul class="icons">
+                            <li class="icon brands fa-github">
+                                <a href="https://github.com/tropicandid">github.com/tropicandid</a>
+                            </li>
+                            <li class="icon brands fa-linkedin">
+                                <a href="https://www.linkedin.com/in/steersdeanna/">linkedin.com/steersdeanna</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

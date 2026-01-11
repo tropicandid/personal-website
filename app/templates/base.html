@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Deanna Steers - Tech for hire</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+	</head>
+
+	<body class="{{ body_classes }} is-preload bg-beige-1">
+        <!-- Header -->
+        {% include 'components/header.html' %}
+        {% block hero %}{% endblock %}
+
+        <main id="main">
+            {% block content %}{% endblock %}
+        </main>
+        <!-- Footer -->
+        <section id="footer" class="footer bg-dark-terracotta">
+            <a href="{{ url_for('get_home') }}" class="logo">Deanna Steers</a>
+            <div id="copyright" class="copyright">
+                <p>&copy;Deanna Steers. All rights reserved.</p>
+            </div>
+        </section>
+
+		<!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+	</body>
+</html>

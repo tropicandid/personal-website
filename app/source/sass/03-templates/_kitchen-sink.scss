@@ -1,0 +1,44 @@
+@use '00-config' as *;
+
+.bg-light-green {
+    background-color: $green-light;
+}
+
+.bg-green {
+    background-color: $green;
+    color: $white;
+}
+
+.bg-dark-green {
+    background-color: $green-dark;
+    color: $white;
+}
+
+.bg-light-terracotta {
+    background-color: $terracotta-light;
+}
+
+.bg-terracotta {
+    background-color: $terracotta;
+}
+
+.bg-dark-terracotta {
+    background-color: $terracotta-dark;
+    color: $white;
+}
+
+.bg-beige-1 {
+    background-color: $beige-1;
+}
+
+.bg-beige-2 {
+    background-color: $beige-2;
+}
+
+.bg-beige-3 {
+    background-color: $beige-3;
+}
+
+.bg-beige-4 {
+    background-color: $beige-4;
+}

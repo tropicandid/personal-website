@@ -1,0 +1,12 @@
+<!-- Highlight -->
+<article class="box highlight">
+    <header>
+        <h3><a href="#">{{ data.title }}</a></h3>
+    </header>
+    <a href="#" class="image left"><img src="{{ data.featured_image }}" alt="" /></a>
+    <div>{{data.body[:250]|safe}}</div>
+    <ul class="actions">
+        {% set permalink = data.title | replace(' ', '-') %}
+        <li><a href="{{ url_for('get_blog_single', blog_title=permalink) }}" class="button icon solid fa-file">Read More</a></li>
+    </ul>
+</article>

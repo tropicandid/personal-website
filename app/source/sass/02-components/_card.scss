@@ -1,0 +1,72 @@
+@use '00-config' as *;
+
+.card {
+    background-color: $white;
+    border: 1px solid grey;
+    border-radius: 2px;
+
+    &:hover {
+        .card-img {
+            transform: scale(1.2);
+        }
+
+        h2:before {
+            width: 65%;
+        }
+    }
+
+    a {
+        color: $dark-brown;
+        text-decoration: none;
+    }
+
+    .text {
+        padding: 1.5rem;
+    }
+
+    .media {
+        overflow: hidden;
+    }
+
+    &-img {
+        max-width: 100%;
+        transform: scale(1.1);
+        transition: all ease-in-out .5s;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-top: 0;
+        position: relative;
+
+        &:before {
+            bottom: 0;
+            content: '';
+            background-color: $terracotta-dark;
+            height: 2px;
+            left: 0;
+            position: absolute;
+            transition: all ease-in-out .5s;
+            width: 0%;
+        }
+    }
+
+    &__excerpt {
+        margin-bottom: 1rem;
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        .eyebrow {
+            border-right: 1px solid $dark-brown;
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding: 0 .5rem 0 .2rem;
+
+            &:last-of-type {
+                border-right: none;
+            }
+        }
+    }
+}

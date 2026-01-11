@@ -1,0 +1,150 @@
+@use '00-config' as *;
+
+.hero {
+    h1 {
+        line-height: 1;
+    }
+
+    .eyebrow {
+        border-right: 1px solid $dark-brown;
+        display: inline-block;
+        padding: 0 .5rem 0 .2rem;
+
+        &:last-of-type {
+            border-right: none;
+        }
+    }
+
+    &-basic {
+        align-items: center;
+        border-bottom: 1px solid $dark-brown;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        padding: 0;
+
+        @media screen and (min-width: $break-tablet) {
+            flex-direction: row;
+        }
+
+        &>* {
+            max-width: 100%;
+
+            @media screen and (min-width: $break-tablet) {
+                max-width: 50%;
+            }
+        }
+
+        &__text {
+            padding: 0 3% 0 5%;
+        }
+
+        &__image {
+            aspect-ratio: 7/5;
+            border-left: 1px solid $dark-brown;
+            object-fit: cover;
+        }
+    }
+
+    &-blog {
+       h1 {
+           font-size: 2rem;
+
+           @media screen and (min-width: $break-tablet) {
+               font-size: 50px;
+           }
+       }
+
+        .hero-basic__image {
+            border-left: none;
+        }
+
+        .hero-basic__text {
+            padding: 2rem 5%;
+            width: 90%;
+
+            @media screen and (min-width: $break-desktop) {
+                padding: 3rem 3% 3rem 5%;
+                width: auto;
+            }
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &-home {
+        background-image: url("../images/embroidery-thread.jpg");
+        background-position: center;
+        background-size: cover;
+        margin-bottom: 2rem;
+        padding: 0 5% 1.5rem;
+
+         @media screen and (min-width: $break-tablet) {
+             padding: 0 5% 3.5rem;
+         }
+
+        &__profile {
+            margin: auto;
+            max-width: 423px;
+            align-items: center;
+            justify-content: space-between;
+
+            @media screen and (min-width: $break-tablet) {
+                display: flex;
+                margin: 1.5rem auto;
+            }
+
+            img {
+                width: 40px;
+                border-radius: 5px;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+            }
+        }
+
+        .hero__text {
+            background-color: white;
+            border: 1px solid gray;
+            margin: auto;
+            max-width: 750px;
+            padding: 1rem;
+            text-align: center;
+            transform: translateY(4.5rem);
+            width: 85%;
+
+            @media screen and (min-width: $break-tablet) {
+                padding: 1rem 2rem;
+                transform: translateY(6.5rem);
+            }
+        }
+
+        h1 {
+            font-family: $font-primary;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+
+            @media screen and (min-width: $break-tablet) {
+                font-size: 18px;
+                margin-bottom: 0;
+            }
+        }
+
+        p {
+            font-size: 30px;
+            font-family: $font-secondary;
+            margin-top: 0;
+
+            @media screen and (min-width: $break-tablet) {
+                font-size: 50px;
+            }
+
+            @media screen and (min-width: $break-desktop) {
+                font-size: 60px;
+            }
+        }
+    }
+}

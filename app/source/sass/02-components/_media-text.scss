@@ -1,0 +1,24 @@
+@use '00-config' as *;
+
+.media-text {
+    border: 1px solid grey;
+    border-radius: 5px;
+
+    @media screen and (min-width: $break-tablet) {
+        display: flex;
+    }
+
+    &__text {
+        align-content: center;
+        padding: 1rem;
+    }
+
+    img {
+        aspect-ratio: 7 / 5;
+        object-fit: cover;
+
+        @media screen and (min-width: $break-tablet) {
+            max-width: 50%;
+        }
+    }
+}

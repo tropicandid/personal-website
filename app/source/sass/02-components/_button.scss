@@ -1,0 +1,42 @@
+@use '00-config' as *;
+
+.button,
+.btn {
+    background: transparent;
+    border: 1px solid  $green-dark;
+    border-radius: 5px;
+    color: $green-dark;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    width: auto;
+
+    &-white {
+        border-color: $white;
+        color: $white;
+    }
+
+    &-beige {
+        border-color: $beige-1;
+        color: $beige-1;
+    }
+
+    &-alt {
+        border: 1px solid $terracotta-dark;
+        color: $terracotta-dark;
+    }
+
+    &__container {
+        border: 1px solid $green-dark;
+        display: inline-block;
+
+        &.alt {
+            border: 1px solid $terracotta-dark;
+        }
+
+         &:hover {
+//             background: linear-gradient(90deg,rgba(39, 66, 35, 1) 100%, rgba(250, 246, 242, 1) 100%);
+        }
+    }
+}

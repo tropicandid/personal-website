@@ -1,0 +1,148 @@
+@use '00-config' as *;
+
+.filter-label-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (min-width: $break-tablet) {
+        display: block;
+    }
+
+    .filter-label {
+        @media screen and (min-width: $break-tablet) {
+            display: none;
+        }
+    }
+}
+
+.filter-button {
+    background-image: url('../images/filter.svg');
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+
+    @media screen and (min-width: $break-tablet) {
+        display: none;
+    }
+}
+
+.filter-content {
+    display: none;
+
+    &.open {
+        display: block
+    }
+
+    @media screen and (max-width: $break-tablet) {
+        position: fixed;
+        z-index: 10;
+        background: white;
+        left: 2.5%;
+        top: 15vh;
+        padding: 2rem 1rem 2.5rem;
+        width: calc(91% - 1rem);
+        box-shadow: 0px 0px 10px 3px #717171;
+        border-radius: 3px;
+    }
+
+    @media screen and (min-width: $break-tablet) {
+        display: block;
+    }
+
+    h2 {
+        margin-bottom: 0;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+}
+
+.filter-close {
+    float: right;
+    height: 30px;
+    width: 30px;
+    transform: translate(15px, 5px);
+
+    &:after,
+    &:before {
+        background-color: $terracotta-dark;
+        content: '';
+        display: block;
+        height: 30px;
+        transform: rotate(45deg);
+        width: 2px;
+    }
+
+    &:after {
+        transform: rotate(-45deg) translate(21px, -21px);
+    }
+
+    @media screen and (min-width: $break-tablet) {
+        display: none;
+    }
+}
+
+.filter-categories {
+    list-style: none;
+    margin: 1rem 0 2rem;
+    padding: 0;
+
+    li {
+        cursor: pointer;
+        font-size: 20px;
+        padding: 0.5rem 0;
+        width: 100%;
+
+        .category-checkbox {
+            border: 2px solid $terracotta-dark;
+            border-radius: 3px;
+            display: inline-block;
+            height: 18px;
+            margin: 4px .5rem -4px 0;
+            position: relative;
+            width: 18px;
+
+            &:before {
+                background: $terracotta-dark;
+                content: '';
+                position: absolute;
+                left: 0;
+                transition: all 0.25s ease-in-out 0s;
+                width: 0;
+            }
+
+            &:before {
+               bottom: 0;
+               height: 18px;
+            }
+        }
+
+        &.active {
+            .category-checkbox:before {
+                width: 18px;
+            }
+
+            &:hover {
+                .category-checkbox:before {
+                    width: 18px;
+                }
+            }
+        }
+
+        &:hover {
+            .category-checkbox:before {
+                width: 6px;
+            }
+        }
+
+
+
+        a:hover {
+            text-decoration: none;
+        }
+    }
+}

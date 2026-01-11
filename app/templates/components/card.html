@@ -1,0 +1,14 @@
+{% if data %}
+{% set permalink = data.title | replace(' ', '-') %}
+<div class="card">
+    <a href="{{ url_for('get_blog_single', blog_title=permalink) }}">
+        <div class="media image featured">
+            <img class="card-img" src="{{data.featured_image}}" style="aspect-ratio: 2/1; object-fit: cover;" />
+        </div>
+        <div class="text">
+            <h2>{{data.title}}</h2>
+            <p>{{data.body[:250]|safe|striptags }}</p>
+        </div>
+    </a>
+</div>
+{% endif %}

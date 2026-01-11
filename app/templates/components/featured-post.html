@@ -1,0 +1,13 @@
+<!-- Post -->
+<article class="box post">
+    <header>
+        <h2>{{data.title}}</h2>
+    </header>
+    {% set permalink = data.title | replace(' ', '-') %}
+    <a href="{{ url_for('get_blog_single', blog_title=permalink) }}" class="image featured"><img src="{{data.featured_image}}" alt="" /></a>
+    <h3>{{data.subtitle}}</h3>
+    <p>{{data.body[:250]|safe}}</p>
+    <ul class="actions">
+        <li><a href="{{ url_for('get_blog_single', blog_title=permalink) }}" class="button icon solid">Continue Reading</a></li>
+    </ul>
+</article>

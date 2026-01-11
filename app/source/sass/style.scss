@@ -1,0 +1,12 @@
+@use '00-config' as *;
+@use '01-global' as *;
+@use '02-components' as *;
+@use '03-templates' as *;
+
+.contact__details {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+}

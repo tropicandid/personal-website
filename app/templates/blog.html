@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block hero %}
+<section class="hero hero-basic">
+        <div class="hero-basic__text">
+            <h1>Blog</h1>
+            <p>If you're interested in taking a look through a chaotic mixture of art and code projects, you've come to the rigth place! </p>
+        </div>
+        <img class="hero-basic__image" src="{{url_for('static', filename='images/blog-featured.jpg')}}" />
+</section>
+{% endblock %}
+
+
+{% block content %}
+    <section class="container container-md grid grid-col-sidebar grid__wide-gap">
+        <div>
+            <div class="filter-label-container">
+                <h2 class="filter-label">Filter</h2>
+                <span id="filter-button" class="filter-button"></span>
+            </div>
+            <div id="filter-content" class="filter-content">
+                <span id="filter-close" class="filter-close"></span>
+                <h2>Search</h2>
+                <form id="search-form" class="search-form">
+                    <div class="search-form__content">
+                        <input type="text" id="search-input" name="s"  minlength="3" size="10" />
+                        <button type="submit" class="search submit"><img src="{{ url_for('static', filename='images/icon--search.svg') }}" /></button>
+                    </div>
+                </form>
+                {% if categories %}
+                <h2>Categories</h2>
+                    <ul class="filter-categories">
+                    {% for category in categories %}
+                        <li class="category"><span class="category-checkbox"></span><a class="category-link" id="category-{{category.id}}" data-slug="{{category.title | replace(' ', '-')}}" data-id="{{category.id}}">{{category.title}}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                <span id="clear" class="clear button button-alt">Clear All</span>
+            </div>
+        </div>
+
+        <div class="col-span-3">
+            <div id="blogs-container" class="blogContainer grid grid-col-2">
+                 {% if pagination.items|length > 0 %}
+                        {% for data in pagination %}
+                            {% include 'components/card.html' %}
+                        {% endfor %}
+                {% else %}
+                    <h2>No results found</h2>
+                {% endif %}
+            </div>
+
+            {% macro render_pagination(pagination) %}
+              <div id="pagination-container" class="pagination">
+                  {% for page in pagination.iter_pages() %}
+                    {% if page %}
+                      {% if page != pagination.page %}
+                        <a id="page-link-{{page}}" class="page-link" data-page="{{page}}" href="{{ url_for('get_blogs', page=page) }}">{{ page }}</a>
+                      {% else %}
+                        <a id="page-link-{{page}}" class="active page-link" data-page="{{page}}" href="{{ url_for('get_blogs', page=page) }}">{{ page }}</a>
+                      {% endif %}
+                    {% else %}
+                      <span class=ellipsis>…</span>
+                    {% endif %}
+                  {%- endfor %}
+              </div>
+            {% endmacro %}
+
+            {{ render_pagination(pagination) }}
+        </div>
+    </section>
+{% endblock %}

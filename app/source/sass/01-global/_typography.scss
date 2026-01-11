@@ -1,0 +1,64 @@
+@use '00-config' as *;
+body {
+    color: $dark-brown;
+    font-family: $font-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-secondary;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+
+    @media screen and (min-width: $break-tablet) {
+        font-size: 7vw;
+        margin-bottom: 1.5rem;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+
+    @media screen and (min-width: $break-tablet) {
+        font-size: 3.5rem;
+        margin-top: 2.5rem;
+    }
+}
+
+p.emphasized {
+    font-size: 1.5rem;
+
+    @media screen and (min-width: $break-desktop) {
+        font-size: 2rem;
+    }
+}
+
+a {
+    color: $terracotta-dark;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline: 1px solid $terracotta-dark;
+    }
+}
+
+.eyebrow {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: $terracotta-dark;
+    text-transform: uppercase;
+}

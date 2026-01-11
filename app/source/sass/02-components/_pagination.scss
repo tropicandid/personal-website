@@ -1,0 +1,14 @@
+@use '00-config' as *;
+
+.pagination {
+    margin: 1rem 0;
+
+    a {
+        text-decoration: none;
+
+        &.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}

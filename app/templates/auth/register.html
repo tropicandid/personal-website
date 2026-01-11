@@ -1,0 +1,23 @@
+{% from "bootstrap/wtf.html" import quick_form %}
+
+{% extends "base.html" %}
+{% block title %}Homepage{% endblock %}
+
+{% block hero %}
+    <h1 id="logo">Register</h1>
+{% endblock %}
+
+{% block content %}
+
+<main class="mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!--TODO: render your registration form here-->
+        {{ quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

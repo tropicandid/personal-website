@@ -1,0 +1,14 @@
+<div id="header" class="header bg-beige-1">
+    <div class="header__container">
+        <a href="{{ url_for('get_home') }}" class="logo">Deanna Steers</a>
+
+<!--        <span id="hamburger" class="hamburger">Hamburger</span>-->
+        <button id="dots" class="dots" tabindex="0"><span></span></button>
+        <ul id="header-nav" class="header__nav hidden bg-beige-1">
+            <li><a class="nav-link" href="{{ url_for('get_about') }}" >About</a></li>
+            <li><a class="nav-link" href="{{ url_for('get_blogs') }}">Blog</a></li>
+            <li><a class="nav-link" href="{{ url_for('get_portfolio') }}">Portfolio</a></li>
+            <li><a class="nav-link" href="{{ url_for('get_contact') }}">Contact</a></li>
+        </ul>
+    </div>
+</div>

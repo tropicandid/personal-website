@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block hero %}
+<section class="hero hero-basic">
+        <div class="hero-basic__text">
+            <h1>Welcome!</h1>
+             <p>(Or welcome back)! My name is Deanna, and I’m so glad you made it to my site!
+                Whether you’re a newer engineer who happened to find one of my videos
+                and came looking for more, or you accidentally found this site because
+                I talk too much about gardening and have somehow ranked in google, my
+                hope is that you can find something useful here.</p>
+        </div>
+        <img class="hero-basic__image" src="{{ url_for('static', filename='images/IMG_6940.jpg') }}" />
+</section>
+{% endblock %}
+
+{% block content %}
+    <section class="container container-sm">
+
+        <h2>A little about me</h2>
+
+        <p>I started working in the technology world in 2014 at a firm in Washington
+            D.C. We were a small but mighty team with startup-delivery energy and a
+            passion for poke bowls. I was fortunate to get my footing in the industry
+            with this team. The diverse client list and adventurous proposals put
+            forth by the sales team helped me to start thinking outside the box for
+            my technical solutions and to have the confidence to try new things.</p>
+        <p> Since then, I’ve worked In roles ranging from SaaS product engineer to
+            AWS Devops support. I believe that there is no such thing as time wasted
+            learning and that every role I’ve had in the past has layered onto my
+            experience to give me a well-rounded set of skills in the online world.</p>
+        <p>
+            On a tangental note, I believe that is it important to find personal meaning in your work.
+            It helps to prevent burnout and inspire creative problem-solving. While my daily profession is
+            in the tech world, a big part of my personal life is lived in slower daily activities
+            such as art, cooking and gardening. I've worked to marry the two parts of my life together
+            and have found a balance that supports them both. Through careful consideration I've found
+            many ways that math, science and technology help to further my slower living pursuits.
+            Those are what I hope to share here.
+        </p>
+
+        <h2>What you'll find here</h2>
+        <p>In my spare time (when im not wandering determinedly through a hobby shop for
+            supplies) I like to try to share my experiences here. It serves me as a
+            fun journal experience I can look back on, and also as a way to try to support
+            the free exchange of knowledge. Nothing accelerates progress like
+            information sharing! Not sure where to start? On my<strong><a href="#!"> blog page</a></strong>, you will find a
+            rambling collection of thoughts, opinions and how-tos ranging from bite-sized coding tutorials to fun sewing tricks.
+            If you're interested in some of my current side projects, take a look at
+            my <strong><a href="#!">portfolio page</a></strong> for ongoing and completed side quests.
+        </p>
+
+    </section>
+
+    {% with image="https://fastly.picsum.photos/id/456/1300/600.jpg?hmac=BBUpSwy1e49ajLVu1kQqpK5itPaxLc-IpoCrjUiAQ-4", quote="I often compare open source to science. Science took this whole notion of developing ideas in the open and improving on other peoples' ideas. It made science what it is today and made the incredible advances that we have had possible.", cite="Linus Torvalds" %}
+        {% include 'components/banner.html' %}
+    {% endwith %}
+
+
+{% endblock %}

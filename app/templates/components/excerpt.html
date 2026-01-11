@@ -1,0 +1,13 @@
+<!-- Excerpt -->
+<article class="card card__excerpt">
+    {% set permalink = data.title | replace(' ', '-') %}
+    <a href="{{ url_for('get_blog_single', blog_title=permalink) }}">
+        <div class="text">
+            {% for category in data.categories_list %}
+                <span class="eyebrow">{{ category.title }}</span>
+            {% endfor %}
+            <h2>{{ data.title }}</h2>
+            {{data.subtitle[:100]|safe}}
+        </div>
+    </a>
+</article>

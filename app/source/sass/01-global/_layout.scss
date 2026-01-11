@@ -1,0 +1,45 @@
+@use '00-config' as *;
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+
+    &-sm {
+        max-width: 750px;
+    }
+
+    &-lg {
+        max-width: 1400px;
+    }
+}
+
+section {
+   padding: 2.5rem 5%;
+}
+
+.header__section {
+    h2 {
+        margin-bottom: 0;
+    }
+
+    .header__cta {
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        @media screen and (min-width: $break-tablet) {
+            display: flex;
+        }
+
+        p {
+            @media screen and (min-width: $break-tablet) {
+                display: inline-block;
+                width: 70%;
+            }
+        }
+
+        .button {
+            display: inline-block;
+        }
+    }
+}
+

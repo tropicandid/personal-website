@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block hero %}
+<section class="hero hero-basic hero-blog container">
+    <div class="hero-basic__text">
+        {% for category in data.categories_list %}
+            <span class="eyebrow">{{ category.title }}</span>
+        {% endfor %}
+        <h1 id="logo">{{ data.title }}</h1>
+        <p>{{ data.subtitle }}</p>
+    </div>
+    <img class="hero-basic__image" src="{{ data.featured_image }}" />
+</section>
+{% endblock %}
+
+{% block content %}
+<!-- Main -->
+<section id="main" class="blog">
+    <div class="container">
+        <div class="grid grid-col-sidebar__alt">
+            <!-- Content -->
+            <div id="content" class="">
+                <article class="box post">
+                    {{ data.body|safe }}
+                    {% if current_user.is_authenticated %}
+                        <div><a href="{{ url_for('edit_blog', blog_id=data.id) }}" class="button icon solid fa-file">Edit Post</a></div>
+                    {% endif %}
+                </article>
+            </div>
+            <!-- Sidebar -->
+            <div id="sidebar" class="sidebar">
+                <h2 class="heading">Related Work</h2>
+                {% for data in related_blogs %}
+                    <!-- Excerpts -->
+                    {% include 'components/excerpt.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

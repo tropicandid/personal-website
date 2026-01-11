@@ -1,0 +1,46 @@
+{% from "bootstrap/wtf.html" import quick_form %}
+
+{% extends "base.html" %}
+{% block title %}Homepage{% endblock %}
+
+{% block hero %}
+    <h1 id="logo"><a href="index.html">Deanna Steers</a></h1>
+    <p>Making the world a better place through technology and grandma hobbies.</p>
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<header
+  class="masthead"
+  style="background-image: url('../static/assets/img/login-bg.jpg')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading">
+          <h1>Log In</h1>
+          <span class="subheading">Welcome Back!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="mb-4">
+  <div class="container">
+    <div class="row">
+      <!-- TODO: add a flash message here for users registering twice -->
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!--TODO: render login form here-->
+        {% if error %}
+          <p class="flash">{{ error }}</p>
+        {% endif %}
+        {{ quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+
+         <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

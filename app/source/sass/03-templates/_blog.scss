@@ -1,0 +1,9 @@
+@use '00-config' as *;
+
+.blog {
+    .sidebar {
+        .heading {
+            font-size: 2.5rem;
+        }
+    }
+}
