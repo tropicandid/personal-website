@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app.forms import RegisterForm, LoginForm, BlogForm, CategoryForm, ContactForm, PortfolioEntryForm
 from flask_bootstrap import Bootstrap
 import os
-from app.email_client import MyEmailTool
+from app.email_client import EmailClientInterface
 
 SALT_LEN=8
 def init_app():
@@ -105,7 +105,7 @@ def init_app():
             name = form.name.data
             message = form.message.data
 
-            mailer = MyEmailTool(
+            mailer = EmailClientInterface(
                 "smtp.gmail.com",
                 "deanna.steers@gmail.com",
                 "kjtk zauz qizb lbex", #TODO: Move To OS Secret
@@ -345,15 +345,23 @@ def init_app():
     ####################### AUTH #######################
     @app.route('/register', methods=['GET', 'POST'])
     def register():
+        if current_user.is_authenticated:
+            return redirect(url_for("get_home"))
+
         if request.method == 'POST':
             user_exists = db.session.query(User).filter(User.email == request.form['email']).first()
-            print(user_exists)
+
             if user_exists:
                 return redirect(
                     url_for("login", error="This email is already is associated with an account. Try logging in."))
 
-            hashed_and_encrypted = generate_password_hash(request.form['password'], method='pbkdf2:sha256',
-                                                          salt_length=SALT_LEN)
+            invite_code = os.environ.get('REGISTRATION_KEY', 'r3g!$tr4t!0n')
+            if request.form['inviteCode'] != invite_code:
+                form = RegisterForm()
+                return render_template("auth/register.html", form=form,
+                                       error="Invalid invitation code. Please contact your administrator if you continue to have difficulty.")
+
+            hashed_and_encrypted = generate_password_hash(request.form['password'], method='pbkdf2:sha256',salt_length=SALT_LEN)
             new_user = User(
                 name=request.form['name'],
                 email=request.form['email'],
