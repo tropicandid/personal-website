@@ -1,6 +1,6 @@
 import smtplib
 
-class MyEmailTool:
+class EmailClientInterface:
 
     def __init__(self, email_client, email_account, password, port):
         self.email_account = email_account

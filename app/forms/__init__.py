@@ -21,6 +21,7 @@ class PortfolioEntryForm(FlaskForm):
     submit = SubmitField("Submit Portfolio Entry")
 
 class RegisterForm(FlaskForm):
+    inviteCode = StringField("Invite Code", validators=[DataRequired()])
     email = StringField("Email Address", validators=[DataRequired(), Email()])
     name = StringField("User Name", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
