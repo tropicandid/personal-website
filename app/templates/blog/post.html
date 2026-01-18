@@ -30,11 +30,13 @@
             </div>
             <!-- Sidebar -->
             <div id="sidebar" class="sidebar">
-                <h2 class="heading">Related Work</h2>
-                {% for data in related_blogs %}
-                    <!-- Excerpts -->
-                    {% include 'components/excerpt.html' %}
-                {% endfor %}
+                {% if related_blogs|length > 0 %}
+                    <h2 class="heading">Related Work</h2>
+                    {% for data in related_blogs %}
+                        <!-- Excerpts -->
+                        {% include 'components/excerpt.html' %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
