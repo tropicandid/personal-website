@@ -63,9 +63,13 @@
             padding: 2rem 5%;
             width: 90%;
 
-            @media screen and (min-width: $break-desktop) {
-                padding: 3rem 3% 3rem 5%;
+            @media screen and (min-width: $break-tablet) {
+                padding: 3rem 3% 3rem 3rem;
                 width: auto;
+            }
+
+            @media screen and (min-width: $break-xl) {
+                padding: 3rem 5% 3rem 0;
             }
 
             p {

@@ -489,10 +489,15 @@ a:focus {
   padding: 2rem 5%;
   width: 90%;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .hero-blog .hero-basic__text {
-    padding: 3rem 3% 3rem 5%;
+    padding: 3rem 3% 3rem 3rem;
     width: auto;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .hero-blog .hero-basic__text {
+    padding: 3rem 5% 3rem 0;
   }
 }
 .hero-blog .hero-basic__text p {
