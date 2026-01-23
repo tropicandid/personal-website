@@ -1,15 +1,10 @@
 from app.config import Config
 from app.extensions import db, flask_app, login_manager
-
-
-
 from flask_ckeditor import CKEditor
 from app.forms import RegisterForm, LoginForm, BlogForm, CategoryForm, ContactForm, PortfolioEntryForm
 from flask_bootstrap import Bootstrap
 from app.email_client import EmailClientInterface
 from app.models import User
-
-
 
 def init_app(config_class=Config):
     flask_app.config.from_object(config_class)
